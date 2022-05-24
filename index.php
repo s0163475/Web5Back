@@ -156,8 +156,8 @@ $superpowers = implode(',',$_POST['superpowers']);
 $biography = $_POST['biography'];
 
 
-$user = 'u47436';
-$pass = '2041646';
+$user = 'u47538';
+$pass = '7904823';
 $db = new PDO('mysql:host=localhost;dbname=u47436', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 
 try {
