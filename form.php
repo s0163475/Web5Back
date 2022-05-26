@@ -50,10 +50,13 @@
 			<!-- выводим способности прямо из бд-->
 			<?php
 				$sql = 'SELECT * FROM SuperDef';
+				 if(is_array($db))
+				  {
 				foreach ($db->query($sql) as $row) {
 					?><input type="checkbox" value=<?php print $row['id']?> name=super[] <?php if(isset($values['super'][$row['id']])&&empty($_COOKIE['super_error']))print("checked"); print "\t"; ?>> 
 					<?php print $row['name'] . "\t";
 				}  
+				  }
 			?>
 			<p><label for="bio">О себе</label>
 			<textarea id="bio" name="bio" <?php if(!empty($errors['bio']))  print 'class="error"';?> <?php if(empty($errors['bio'])&&!empty($values['bio'])) print 'class="ok"';?>><?php isset($_COOKIE['bio_error']) ? print trim($_COOKIE['bio_error']) : print $values['bio'] ?></textarea>
